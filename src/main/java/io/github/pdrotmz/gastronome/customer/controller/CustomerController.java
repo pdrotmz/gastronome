@@ -46,8 +46,6 @@ public class CustomerController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // TODO: REVIEW THESE UPDATES ENDPOINTS, GOING 404
-
     @PutMapping("/update/id/{id}")
     public ResponseEntity<Customer> updateCustomerById(@PathVariable String id, @Valid @RequestBody Customer customer) {
         Optional<Customer> updatedCustomer = customerSerivce.updateCustomerById(id, customer);

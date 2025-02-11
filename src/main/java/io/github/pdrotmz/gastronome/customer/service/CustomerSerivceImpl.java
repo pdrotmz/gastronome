@@ -50,9 +50,9 @@ public class CustomerSerivceImpl implements CustomerService {
     @Override
     public Optional<Customer> updateCustomerById(String id, Customer customer) {
         return customerRepository.findById(id).map(existingCustomer -> {
-            customer.setName(existingCustomer.getName());
-            customer.setEmail(existingCustomer.getEmail());
-            customer.setPhone(existingCustomer.getPhone());
+            existingCustomer.setName(customer.getName());
+            existingCustomer.setEmail(customer.getEmail());
+            existingCustomer.setPhone(customer.getPhone());
 
             return customerRepository.save(existingCustomer);
         })
@@ -63,9 +63,9 @@ public class CustomerSerivceImpl implements CustomerService {
     @Override
     public Optional<Customer> updateCustomerByEmail(String email, Customer customer) {
         return customerRepository.findCustomerByEmail(email).map(existingCustomer -> {
-            customer.setName(existingCustomer.getName());
-            customer.setEmail(existingCustomer.getEmail());
-            customer.setPhone(existingCustomer.getPhone());
+            existingCustomer.setName(customer.getName());
+            existingCustomer.setEmail(customer.getEmail());
+            existingCustomer.setPhone(customer.getPhone());
 
             return customerRepository.save(existingCustomer);
         })
